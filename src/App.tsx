@@ -9,11 +9,11 @@ function App():JSX.Element {
  
 
   return (
-    <div className="w-full border  border-black flex justify-center min-h-screen ">
+    <main className="w-full border  border-black flex justify-center min-h-screen ">
     <Form/>
     <Cv/>
      
-    </div>
+    </main>
   )
 }
 

@@ -1,12 +1,11 @@
 import { Education } from './Education'
 import { PersonDetails } from './PersonDetails'
-import { Reference } from './Reference'
 import { WorkExperience } from './WorkExperience'
 
 export const Cv = (): JSX.Element => {
     return (
-        <div className='w-2/3 border-black border mx-6  flex '>
-            <div className='border bg-gray-800  border-black h-full w-1/3 '>
+        <div className='w-2/3  mx-6  flex py-8 rounded-xl'>
+            <div className='border bg-gray-800  border-black h-full w-1/3 rounded-l-xl'>
                 <div className='flex justify-center items-center'>
                     <img
                         className='w-64 h-64 rounded-[50%]'
@@ -23,9 +22,9 @@ export const Cv = (): JSX.Element => {
                     
                 </div>
                 <div>
-                <h2 className="text-white text-2lg font-bold mt-12 mx-6"> REFERENCE </h2>
+                <h2 className="text-white text-2lg font-bold mt-12 mx-6"> Personal Information </h2>
                 <hr className=' bg-black border-1 border-yellow-400 rounded-full mt-2 mx-6' />
-                <Reference/>
+             
 
                 </div>
                 <div className='h-auto'>
@@ -34,7 +33,7 @@ export const Cv = (): JSX.Element => {
 
 
             </div>
-            <div className='w-2/3 border bg-gray-300'>
+            <div className='w-2/3 border bg-gray-300 rounded-r-xl'>
                 <div className='w-full border border-black h-28 mt-12 bg-yellow-400 flex justify-center flex-col pl-12'>
                     <h1 className='text-2xl font-bold'>Emiliano Tejeda Trinidad</h1>
                     <p className='text-1xl pt-2 '><span className='font-semibold'>Profession</span>: Software Developer</p>

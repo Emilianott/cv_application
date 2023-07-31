@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
+import { formProps } from '../App'
 
-export const Form = (): JSX.Element => {
+export function Form({ form, setForm }: formProps): JSX.Element {
     const [basicInfo, setBasicInfo] = useState<boolean>(true)
     const [education, setEducation] = useState<boolean>(false)
     const [personalInfo, setPersonalInfo] = useState<boolean>(false)
@@ -13,9 +14,12 @@ export const Form = (): JSX.Element => {
             setEducation(!education)
         } else if (value === 3) {
             setPersonalInfo(!personalInfo)
-        }else if (value === 4){
+        } else if (value === 4) {
             setWorkExperience(!workExperience)
         }
+    }
+    const handleOnchange = (e): void => {
+        console.log(e)
     }
 
     return (
@@ -51,6 +55,8 @@ export const Form = (): JSX.Element => {
                             Profession
                         </label>
                         <input
+                            onChange={handleOnchange}
+                            name='profession'
                             id='profession'
                             type='text'
                             placeholder='Enter your profession '
@@ -205,68 +211,69 @@ export const Form = (): JSX.Element => {
                     Work Experience
                 </h2>
                 <hr className='bg border border-yellow-400 w-3/4 ' />
-                {workExperience && 
-                <form
-                    className='mt-5 flex flex-col w-full justify-center gap-5 items-center'
-                    action=''>
-                    <label
-                        htmlFor='company'
-                        className='mt-6   font-extrabold  '>
-                        Company Name
-                    </label>
-                    <input
-                        id='company'
-                        type='text'
-                        placeholder='Enter the Company Name'
-                        className='border border-black w-1/2 rounded-xl   text-black text-center'
-                    />
-                    <div className='w-full flex justify-center '>
-                        <div className='pl-28  flex flex-col w-1/2 '>
-                            <label
-                                htmlFor='company'
-                                className='mt-6 pl-14  font-extrabold  '>
-                                Start
-                            </label>
-                            <input
-                                id='company'
-                                type='date'
-                                placeholder='Enter the Company Name'
-                                className='border border-black w-36 rounded-xl   text-black text-center'
-                            />
+                {workExperience && (
+                    <form
+                        className='mt-5 flex flex-col w-full justify-center gap-5 items-center'
+                        action=''>
+                        <label
+                            htmlFor='company'
+                            className='mt-6   font-extrabold  '>
+                            Company Name
+                        </label>
+                        <input
+                            id='company'
+                            type='text'
+                            placeholder='Enter the Company Name'
+                            className='border border-black w-1/2 rounded-xl   text-black text-center'
+                        />
+                        <div className='w-full flex justify-center '>
+                            <div className='pl-28  flex flex-col w-1/2 '>
+                                <label
+                                    htmlFor='company'
+                                    className='mt-6 pl-14  font-extrabold  '>
+                                    Start
+                                </label>
+                                <input
+                                    id='company'
+                                    type='date'
+                                    placeholder='Enter the Company Name'
+                                    className='border border-black w-36 rounded-xl   text-black text-center'
+                                />
+                            </div>
+                            <div className=' pl-5 flex flex-col w-1/2 '>
+                                <label
+                                    htmlFor='company'
+                                    className='mt-6 pl-14  font-extrabold  '>
+                                    End
+                                </label>
+                                <input
+                                    id='company'
+                                    type='date'
+                                    placeholder='Enter the Company Name'
+                                    className='border border-black w-36 rounded-xl   text-black text-center'
+                                />
+                            </div>
                         </div>
-                        <div className=' pl-5 flex flex-col w-1/2 '>
-                            <label
-                                htmlFor='company'
-                                className='mt-6 pl-14  font-extrabold  '>
-                                End
-                            </label>
-                            <input
-                                id='company'
-                                type='date'
-                                placeholder='Enter the Company Name'
-                                className='border border-black w-36 rounded-xl   text-black text-center'
-                            />
-                        </div>
-                    </div>
-                    <label
-                        htmlFor='job'
-                        className='mt-6  font-extrabold '>
-                        Job description
-                    </label>
-                    <textarea
-                        className='w-1/2 mb-5  text-center text-black'
-                        placeholder='Briefly describe your job '
-                        name='job'
-                        id='job'
-                        cols={1}
-                        rows={2}></textarea>
+                        <label
+                            htmlFor='job'
+                            className='mt-6  font-extrabold '>
+                            Job description
+                        </label>
+                        <textarea
+                            className='w-1/2 mb-5  text-center text-black'
+                            placeholder='Briefly describe your job '
+                            name='job'
+                            id='job'
+                            cols={1}
+                            rows={2}></textarea>
 
-                    <div className=' flex justify-center w-full items-center mt-5 mb-10'>
-                        <button className='w-1/2 border border-black   mb-5 hover:scale-110 bg-yellow-300 text-black hover:bg-yellow-400 transition ease-in-out  rounded-xl'>
-                            Save
-                        </button>
-                    </div>
-                </form>}
+                        <div className=' flex justify-center w-full items-center mt-5 mb-10'>
+                            <button className='w-1/2 border border-black   mb-5 hover:scale-110 bg-yellow-300 text-black hover:bg-yellow-400 transition ease-in-out  rounded-xl'>
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                )}
             </div>
         </aside>
     )
